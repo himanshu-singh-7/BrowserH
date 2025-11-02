@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrowserH - Privacy Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="browser-container">
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <div class="tabs" id="tabs"></div>
+      <button class="btn-icon" id="newTab" title="New Tab">+</button>
+      <button class="btn-icon" id="newPrivateTab" title="New Private Tab">🔒</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+      <button class="btn-icon" id="back" title="Back">←</button>
+      <button class="btn-icon" id="forward" title="Forward">→</button>
+      <button class="btn-icon" id="refresh" title="Refresh">↻</button>
+      <button class="btn-icon" id="home" title="Home">🏠</button>
+      
+      <div class="url-bar">
+        <span class="lock-icon">🔒</span>
+        <input type="text" id="urlInput" placeholder="Search or enter URL...">
+      </div>
+
+      <select id="searchEngine" class="search-select">
+        <option value="google">Google</option>
+        <option value="bing">Bing</option>
+        <option value="yahoo">Yahoo</option>
+        <option value="duckduckgo">DuckDuckGo</option>
+        <option value="startpage">Startpage</option>
+      </select>
+
+      <button class="btn-icon" id="settings" title="Settings">⚙️</button>
+      <div class="blocked-counter" title="Ads/Trackers Blocked">
+        🛡️ <span id="blockedCount">0</span>
+      </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel" style="display: none;">
+      <h3>⚙️ BrowserH Settings</h3>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="historyToggle">
+          Enable History (Disabled by default)
+        </label>
+      </div>
+      <div class="setting-item">
+        <button id="clearHistory" class="btn">Clear History</button>
+        <button id="clearCookies" class="btn">Clear Cookies</button>
+      </div>
+      <button id="closeSettings" class="btn">Close</button>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" id="historyPanel" style="display: none;">
+      <h3>📜 Browsing History</h3>
+      <div id="historyList"></div>
+    </div>
+
+    <!-- WebView Container -->
+    <div class="webview-container">
+      <webview id="webview" src="about:blank"></webview>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
