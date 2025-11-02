@@ -1,21 +1,27 @@
+
 {
   "name": "browserh",
   "version": "1.0.0",
-  "description": "Privacy-focused web browser with built-in ad blocking and anti-tracking",
+  "description": "Privacy-focused web browser with built-in ad blocking",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build:win": "electron-builder --win",
     "build:mac": "electron-builder --mac",
     "build:linux": "electron-builder --linux",
-    "build:all": "electron-builder -mwl"
+    "build:all": "electron-builder --win --linux --mac"
   },
-  "keywords": ["browser", "privacy", "ad-blocker", "electron"],
+  "keywords": [
+    "browser",
+    "privacy",
+    "ad-blocker"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "electron": "^27.0.0",
-    "electron-builder": "^24.6.4"
+    "electron-builder": "^24.6.4",
+    "dmg-license": "^1.0.11"
   },
   "build": {
     "appId": "com.browserh.app",
@@ -24,17 +30,24 @@
       "output": "dist"
     },
     "win": {
-      "target": ["nsis"],
-      "icon": "build/icon.ico"
+      "target": [
+        "nsis"
+      ],
+      "sign": null
     },
     "mac": {
-      "target": ["dmg"],
-      "icon": "build/icon.icns",
-      "category": "public.app-category.productivity"
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
     },
     "linux": {
-      "target": ["AppImage"],
-      "icon": "build/icon.png",
+      "target": [
+        "AppImage"
+      ],
       "category": "Network"
     }
   }
