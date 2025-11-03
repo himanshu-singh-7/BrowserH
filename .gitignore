@@ -1,6 +1,7 @@
 dist/
 node_modules/
-dist/
-node_modules/
-dist/
-node_modules/
+*.exe
+*.dmg
+*.AppImage
+*.log
+.DS_Store
